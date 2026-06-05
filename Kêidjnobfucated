@@ -4,7 +4,7 @@ local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Window = OrionLib:MakeWindow({
-	Name = "Script riĂªng cá»§a Anâ­",
+	Name = "Script riêng của An⭐",
 	HidePremium = false,
 	SaveConfig = true,
 	ConfigFolder = "Config"
@@ -78,7 +78,7 @@ Tab:AddToggle({
 
 								task.wait(3)
 
-								-- Start Dungeon má»›i
+								-- Start Dungeon mới
 								pcall(function()
 									game:GetService("ReplicatedStorage")
 									.Packages._Index["sleitnick_knit@1.4.7"]
@@ -142,19 +142,19 @@ local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local hrp = character:WaitForChild("HumanoidRootPart")
 
--- Cáº­p nháº­t láº¡i character khi respawn
+-- Cập nhật lại character khi respawn
 player.CharacterAdded:Connect(function(newChar)
     character = newChar
     hrp = newChar:WaitForChild("HumanoidRootPart")
 end)
 
-local AutoGodmode = True
+local AutoGodmode = true
 local mainConnection
 
 local HEIGHT_ABOVE = 9.22
 
 Tab:AddToggle({
-    Name = "Auto Skill + Godmode V2 (Cháº¡y LiĂªn Tá»¥c)",
+    Name = "Auto Skill + Godmode V2 (Chạy Liên Tục)",
     Default = true,
     Callback = function(Value)
         AutoGodmode = Value
@@ -169,7 +169,7 @@ Tab:AddToggle({
                 
                 if not bossFolder then return end
                 
-                -- TĂ¬m boss gáº§n nháº¥t (chá»‰ boss cĂ²n sá»‘ng)
+                -- Tìm boss gần nhất (chỉ boss còn sống)
                 local closestBoss = nil
                 local closestDist = math.huge
                 
@@ -192,19 +192,19 @@ Tab:AddToggle({
                 local bossHRP = closestBoss.HumanoidRootPart
                 local targetPos = bossHRP.Position + Vector3.new(0, HEIGHT_ABOVE, 0)
                 
-                -- Fix rÆ¡i + giáº­t máº¡nh
+                -- Fix rơi + giật mạnh
                 hrp.Velocity = Vector3.new(0, 0, 0)
                 hrp.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
                 hrp.AssemblyAngularVelocity = Vector3.new(0, 0, 0)
                 
-                -- Tween mÆ°á»£t
+                -- Tween mượt
                 local tweenInfo = TweenInfo.new(0.22, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
                 local tween = TweenService:Create(hrp, tweenInfo, {
                     CFrame = CFrame.new(targetPos, bossHRP.Position)
                 })
                 tween:Play()
                 
-                -- Auto Skill chá»‰ khi gáº§n
+                -- Auto Skill chỉ khi gần
                 if closestDist <= 30 then
                     local args = {
                         "Weapons_20_3",
@@ -234,10 +234,10 @@ Tab:AddToggle({
         end
     end
 })
-local AutoLoc = True
+local AutoLoc = true
 
 Tab:AddToggle({
-	Name = "Auto Lá»™c",
+	Name = "Auto Lộc",
 	Default = true,
 	Callback = function(Value)
 		AutoLoc = Value
@@ -272,7 +272,7 @@ Tab:AddToggle({
 		end
 	end
 })
-local AutoSkillXanh = True
+local AutoSkillXanh = true
 
 Tab:AddToggle({
 	Name = "Auto Skill Xanh",
@@ -320,7 +320,7 @@ Tab:AddToggle({
 		end
 	end
 })
-local AutoKillscroid = True
+local AutoKillscroid = true
 
 Tab:AddToggle({
     Name = "Auto kill scroid",
@@ -355,14 +355,14 @@ Tab:AddToggle({
                     -- ==================== AUTO SKILL ====================
                     local args = {
                         {
-                            Camera = CFrame.lookAt(mobPos + Vector3.new(0, 15, 0), mobPos), -- Camera nhĂ¬n xuá»‘ng mob
+                            Camera = CFrame.lookAt(mobPos + Vector3.new(0, 15, 0), mobPos), -- Camera nhìn xuống mob
 
                             SkillId = "101",
                             Began = true,
 
                             CFrame = CFrame.lookAt(mobPos + Vector3.new(0, 5, 0), mobPos), -- CFrame skill
 
-                            ["Type"] = 1,  -- LÆ°u Ă½: chá»¯ "Đµ" lĂ  Cyrillic
+                            ["Typе"] = 1,  -- Lưu ý: chữ "е" là Cyrillic
 
                             Aim = mobPos
                         }
@@ -379,10 +379,10 @@ Tab:AddToggle({
         end)
     end
 })
-local AutoPhePha = True
+local AutoPhePha = true
 
 Tab:AddToggle({
-	Name = "Auto biáº¿n hĂ¬nh",
+	Name = "Auto biến hình",
 	Default = true,
 	Callback = function(Value)
 		AutoPhePha = Value
@@ -451,10 +451,10 @@ Tab:AddToggle({
 		end)
 	end
 })
-local AutoDanh = True
+local AutoDanh = true
 
 Tab:AddToggle({
-    Name = "Auto Ä‘Ă¡nh",
+    Name = "Auto đánh",
     Default = true,
     Callback = function(Value)
         AutoDanh = Value
@@ -477,7 +477,7 @@ Tab:AddToggle({
                             -1.2599003618163351e-08, 1, -7.783230415725484e-08,
                             -0.9317581653594971, -3.9998539591579174e-08, -0.3630794882774353
                         ),
-                        ["Type"] = 1,
+                        ["Typе"] = 1,
                         Aim = Vector3.new(
                             1287.5755615234375,
                             594.4747924804688,
@@ -496,7 +496,7 @@ Tab:AddToggle({
         end)
     end
 })
-local AutoEnergyBallGreta = True
+local AutoEnergyBallGreta = true
 
 Tab:AddToggle({
     Name = "Auto enery ball Greta",
@@ -522,7 +522,7 @@ Tab:AddToggle({
                             -0.009050008840858936, 0.9999493360519409, -0.004409058019518852,
                             0.9987552762031555, 0.009255310520529747, 0.04901226609945297
                         ),
-                        ["Type"] = 1,
+                        ["Typе"] = 1,
                         Aim = Vector3.new(
                             1175.8743896484375,
                             2018.5732421875,
