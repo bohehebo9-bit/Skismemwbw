@@ -1,3 +1,7 @@
+if game.PlaceId ~= 119538320626412 then
+    return
+end
+
 local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/duysira5/Hehe/refs/heads/main/Orion.lua.txt"))()
 
 local Players = game:GetService("Players")
