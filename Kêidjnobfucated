@@ -603,3 +603,26 @@ task.spawn(function()
         LastHealth = Humanoid.Health
     end
 end)
+local RemoveBeast = true
+
+Tab:AddToggle({
+    Name = "Xoá Beast blabla",
+    Default = true,
+    Callback = function(v)
+        RemoveBeast = v
+    end
+})
+
+task.spawn(function()
+    while task.wait(1) do
+        if RemoveBeast then
+            local Effects = game:GetService("ReplicatedStorage")
+                .ClientSource.Modules.SkillSystems.TransformEffects
+
+            local Beast = Effects:FindFirstChild("Beast")
+            if Beast then
+                Beast:Destroy()
+            end
+        end
+    end
+end)
