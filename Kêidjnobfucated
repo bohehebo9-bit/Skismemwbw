@@ -637,7 +637,7 @@ Tab:AddToggle({
 })
 
 task.spawn(function()
-    while task.wait(1) do
+    while task.wait(0.08) do
         if not AutoBeastV2 then
             continue
         end
