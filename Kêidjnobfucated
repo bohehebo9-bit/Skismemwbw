@@ -626,3 +626,36 @@ task.spawn(function()
         end
     end
 end)
+local AutoBeastV2 = true
+
+Tab:AddToggle({
+    Name = "Auto Beast V2",
+    Default = true,
+    Callback = function(v)
+        AutoBeastV2 = v
+    end
+})
+
+task.spawn(function()
+    while task.wait(1) do
+        if not AutoBeastV2 then
+            continue
+        end
+
+        local Boss = workspace["World Mobs"]["Event Mobs"]:FindFirstChild("Great Droid")
+        local Humanoid = Boss and Boss:FindFirstChildOfClass("Humanoid")
+
+        if Humanoid and Humanoid.MaxHealth > 0 then
+            local Percent = math.floor((Humanoid.Health / Humanoid.MaxHealth) * 100)
+
+            if Percent >= 100 or Percent == 40 then
+                -- Bật Beast ở đây
+                print("Bật Beast", Percent .. "%")
+                
+            elseif Percent <= 30 then
+                -- Không bật Beast
+                print("Không bật Beast", Percent .. "%")
+            end
+        end
+    end
+end)
