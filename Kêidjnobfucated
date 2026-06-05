@@ -569,3 +569,37 @@ Tab:AddToggle({
         end)
     end
 })
+local AutoDestroy = true
+local Humanoid = game.Players.LocalPlayer.Character:WaitForChild("Humanoid")
+
+Tab:AddToggle({
+    Name = "Auto Destroy",
+    Default = true,
+    Callback = function(v)
+        AutoDestroy = v
+    end
+})
+
+local LastHealth = Humanoid.Health
+
+task.spawn(function()
+    while task.wait(0.1) do
+        if AutoDestroy and Humanoid.Health < LastHealth then
+            local args = {
+                {
+                    Camera = CFrame.new(1199.78564453125, 2046.0299072265625, 931.2945556640625, 0.8718764781951904, -0.45379844307899475, 0.1841149628162384, 0.000026226043701171875, 0.37599843740463257, 0.9266203045845032, -0.489725798368454, -0.807893693447113, 0.3278360962867737),
+                    SkillId = "108",
+                    ["Typ\208\181"] = 1,
+                    Began = true,
+                    CFrame = CFrame.new(1195.4774169921875, 2035.1888427734375, 930.71826171875, 0.9622994065284729, -0.24931593239307404, 0.10872641950845718, 0.000034881977626355365, 0.39985376596450806, 0.9165789484977722, -0.27199238538742065, -0.882019579410553, 0.38478773832321167),
+                    Target = workspace["World Map"]["Droid Underground Venue"].Floor.Floor.Part,
+                    Aim = vector.create(1192.5758056640625, 2007.6884765625, 920.4428100585938)
+                }
+            }
+
+            game:GetService("ReplicatedStorage").Remotes.SkillRemote:FireServer(unpack(args))
+        end
+
+        LastHealth = Humanoid.Health
+    end
+end)
